@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Does an AI System Actually Do?</title>
+    <!-- Modern Typography: Poppins for headings, Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for clean vector icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-canvas: #f4f6f9;
+            --bg-white: #ffffff;
+            
+            /* Text Colors */
+            --text-title: #0f172a;
+            --text-heading: #1e293b;
+            --text-body: #475569;
+            --text-light: #64748b;
+            
+            /* Accent Colors (Blue/Purple theme) */
+            --accent-blue: #2563eb;
+            --accent-blue-light: #eff6ff;
+            --accent-purple: #7c3aed;
+            --accent-gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            --accent-gradient-light: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+            
+            /* UI Elements */
+            --border-soft: #e2e8f0;
+            --radius-card: 20px;
+            --radius-icon: 16px;
+            
+            /* Soft Shadows */
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.03), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 25px 35px -5px rgba(37, 99, 235, 0.08), 0 10px 10px -5px rgba(37, 99, 235, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-canvas);
+            color: var(--text-body);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+            /* Hide scrollbars for absolute pristine presentation */
+            overflow: hidden; 
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-heading);
+            line-height: 1.2;
+        }
+
+        /* 1920x1080 Container Lock */
+        .infographic {
+            width: 1920px;
+            height: 1080px;
+            background-color: var(--bg-white);
+            background-image: 
+                radial-gradient(circle at 10% 0%, rgba(37, 99, 235, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 90% 100%, rgba(124, 58, 237, 0.04) 0%, transparent 40%);
+            border-radius: 32px;
+            box-shadow: var(--shadow-lg);
+            padding: 64px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transform-origin: center;
+        }
+
+        /* Global Title (Optional top watermark/title) */
+        .page-title {
+            position: absolute;
+            top: 40px;
+            left: 80px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            opacity: 0.6;
+        }
+
+        /* -------------------------------------
+           TOP SECTION: PIPELINE
+           ------------------------------------- */
+        .top-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .top-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-title);
+        }
+
+        .top-section p.subtitle {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .pipeline-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 50px;
+            padding: 0 10px;
+        }
+
+        .pipeline-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-card);
+            width: 250px;
+            height: 250px;
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .pipeline-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        .pipeline-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: var(--radius-icon);
+            background: var(--accent-gradient-light);
+            color: var(--accent-blue);
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .pipeline-card:hover .pipeline-icon {
+            background: var(--accent-gradient);
+            color: white;
+        }
+
+        .pipeline-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .pipeline-card p {
+            font-size: 0.95rem;
+            color: var(--text-body);
+            line-height: 1.5;
+        }
+
+        /* Connecting Arrows */
+        .arrow-connector {
+            flex-grow: 1;
+            height: 2px;
+            background: var(--border-soft);
+            position: relative;
+            z-index: 1;
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .arrow-connector i {
+            color: #cbd5e1;
+            background: var(--bg-white);
+            padding: 0 5px;
+            font-size: 1rem;
+        }
+
+        /* -------------------------------------
+           MIDDLE SECTION: REAL-WORLD SYSTEMS
+           ------------------------------------- */
+        .middle-section {
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .section-header {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .real-world-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding: 0 60px;
+        }
+
+        .rw-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-card);
+            padding: 32px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .rw-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+
+        .rw-title-area {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .rw-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--accent-gradient-light);
+            color: var(--accent-blue);
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rw-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .rw-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .rw-step {
+            display: flex;
+            align-items: center;
+            font-size: 1.05rem;
+            color: var(--text-body);
+            font-weight: 500;
+        }
+
+        .rw-step.final {
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .rw-step i {
+            margin-right: 12px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            opacity: 0.5;
+            width: 16px;
+            text-align: center;
+        }
+
+        /* -------------------------------------
+           BOTTOM SECTION: HOW CHATBOT WORKS
+           ------------------------------------- */
+        .bottom-section {
+            background: var(--accent-gradient-light);
+            border-radius: var(--radius-card);
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bottom-section .section-header {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .chatbot-steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+        }
+
+        .bot-step {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .bot-step-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+        }
+
+        .bot-step p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-body);
+        }
+        
+        /* Auto scale container to fit screen if needed */
+        @media (max-width: 1920px) {
+            body {
+                padding: 0;
+            }
+            .infographic {
+                transform: scale(min(calc(100vw / 1920), calc(100vh / 1080)));
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="infographic">
+    
+    <div class="page-title">What Does an AI System Actually Do?</div>
+
+    <!-- 1. TOP SECTION -->
+    <div class="top-section">
+        <h1>AI System Pipeline</h1>
+        <p class="subtitle">Every AI system follows a simple flow: Input → Processing → Output</p>
+        
+        <div class="pipeline-wrapper">
+            <!-- 1 -->
+            <div class="pipeline-card">
+                <div class="pipeline-icon"><i class="fa-regular fa-user"></i></div>
+                <h3>1. Input</h3>
+                <p>Receives text, image, audio, or other user data.</p>
+            </div>
+            
+            <div class="arrow-connector"><i class="fa-solid fa-chevron-right"></i></div>
+            
+            <!-- 2 -->
+            <div class="pipeline-card">
+                <div class="pipeline-icon"><i class="fa-solid fa-database"></i></div>
+                <h3>2. Data Collection</h3>
+                <p>Collects relevant information from available sources.</p>
+            </div>
+
+            <div class="arrow-connector"><i class="fa-solid fa-chevron-right"></i></div>
+            
+            <!-- 3 -->
+            <div class="pipeline-card">
+                <div class="pipeline-icon"><i class="fa-solid fa-gear"></i></div>
+                <h3>3. Preprocessing</h3>
+                <p>Cleans, formats, and converts data into a usable format.</p>
+            </div>
+
+            <div class="arrow-connector"><i class="fa-solid fa-chevron-right"></i></div>
+            
+            <!-- 4 -->
+            <div class="pipeline-card">
+                <div class="pipeline-icon"><i class="fa-solid fa-network-wired"></i></div>
+                <h3>4. AI Model</h3>
+                <p>Analyzes patterns, understands context, and generates predictions.</p>
+            </div>
+
+            <div class="arrow-connector"><i class="fa-solid fa-chevron-right"></i></div>
+            
+            <!-- 5 -->
+            <div class="pipeline-card">
+                <div class="pipeline-icon"><i class="fa-solid fa-filter"></i></div>
+                <h3>5. Post Processing</h3>
+                <p>Refines, validates, and formats the generated output.</p>
+            </div>
+
+            <div class="arrow-connector"><i class="fa-solid fa-chevron-right"></i></div>
+            
+            <!-- 6 -->
+            <div class="pipeline-card">
+                <div class="pipeline-icon"><i class="fa-solid fa-desktop"></i></div>
+                <h3>6. Output</h3>
+                <p>Returns the final response to the user.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. MIDDLE SECTION -->
+    <div class="middle-section">
+        <h2 class="section-header">Real-World AI Systems</h2>
+        
+        <div class="real-world-grid">
+            <!-- ChatGPT -->
+            <div class="rw-card">
+                <div class="rw-title-area">
+                    <div class="rw-icon"><i class="fa-solid fa-comment-dots"></i></div>
+                    <h3>ChatGPT</h3>
+                </div>
+                <div class="rw-flow">
+                    <div class="rw-step"><i class="fa-solid fa-circle-dot" style="color:var(--accent-blue);"></i> User Question</div>
+                    <div class="rw-step"><i class="fa-solid fa-arrow-down"></i> Tokenization</div>
+                    <div class="rw-step"><i class="fa-solid fa-arrow-down"></i> Large Language Model</div>
+                    <div class="rw-step"><i class="fa-solid fa-arrow-down"></i> Response Generation</div>
+                    <div class="rw-step final"><i class="fa-solid fa-check" style="color:var(--accent-purple);"></i> Answer</div>
+                </div>
+            </div>
+
+            <!-- Google Translate -->
+            <div class="rw-card">
+                <div class="rw-title-area">
+                    <div class="rw-icon"><i class="fa-solid fa-language"></i></div>
+                    <h3>Google Translate</h3>
+                </div>
+                <div class="rw-flow">
+                    <div class="rw-step"><i class="fa-solid fa-circle-dot" style="color:var(--accent-blue);"></i> Input Text</div>
+                    <div class="rw-step"><i class="fa-solid fa-arrow-down"></i> Language Detection</div>
+                    <div class="rw-step"><i class="fa-solid fa-arrow-down"></i> Translation Model</div>
+                    <div class="rw-step"><i class="fa-solid fa-arrow-down"></i> Generate Translation</div>
+                    <div class="rw-step final"><i class="fa-solid fa-check" style="color:var(--accent-purple);"></i> Output</div>
+                </div>
+            </div>
+
+            <!-- Spotify Recommendation -->
+            <div class="rw-card">
+                <div class="rw-title-area">
+                    <div class="rw-icon"><i class="fa-solid fa-music"></i></div>
+                    <h3>Spotify Recommendation</h3>
+                </div>
+                <div class="rw-flow">
+                    <div class="rw-step"><i class="fa-solid fa-circle-dot" style="color:var(--accent-blue);"></i> Listening History</div>
+                    <div class="rw-step"><i class="fa-solid fa-arrow-down"></i> Preference Analysis</div>
+                    <div class="rw-step"><i class="fa-solid fa-arrow-down"></i> Recommendation Engine</div>
+                    <div class="rw-step"><i class="fa-solid fa-arrow-down"></i> Ranking</div>
+                    <div class="rw-step final"><i class="fa-solid fa-check" style="color:var(--accent-purple);"></i> Suggested Playlist</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. BOTTOM SECTION -->
+    <div class="bottom-section">
+        <h2 class="section-header">How a Chatbot Works</h2>
+        
+        <div class="chatbot-steps">
+            <div class="bot-step">
+                <div class="bot-step-number">1</div>
+                <p>Receives a user's message.</p>
+            </div>
+            <div class="bot-step">
+                <div class="bot-step-number">2</div>
+                <p>Converts the message into tokens.</p>
+            </div>
+            <div class="bot-step">
+                <div class="bot-step-number">3</div>
+                <p>The language model understands the context and predicts the best response.</p>
+            </div>
+            <div class="bot-step">
+                <div class="bot-step-number">4</div>
+                <p>The response is formatted into readable text.</p>
+            </div>
+            <div class="bot-step">
+                <div class="bot-step-number">5</div>
+                <p>The chatbot returns the final answer within seconds.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
