@@ -1,0 +1,165 @@
+{
+  "sentences": [
+    "It is a beautiful, sunny day outside.",
+    "The weather is lovely and warm today.",
+    "A software engineer is writing clean Python code.",
+    "The developer is programming in Python on their laptop.",
+    "A stray cat is sleeping soundly under the car."
+  ],
+  "similarity_matrix": [
+    [
+      1.0,
+      0.7880023717880249,
+      0.06638775765895844,
+      0.03703206032514572,
+      0.00679326057434082
+    ],
+    [
+      0.7880023717880249,
+      1.000000238418579,
+      0.0970580205321312,
+      0.05815163254737854,
+      0.028810974210500717
+    ],
+    [
+      0.06638775765895844,
+      0.0970580205321312,
+      1.000000238418579,
+      0.7454137206077576,
+      0.04710865765810013
+    ],
+    [
+      0.03703206032514572,
+      0.05815163254737854,
+      0.7454137206077576,
+      1.0000001192092896,
+      0.025534814223647118
+    ],
+    [
+      0.006793266162276268,
+      0.028810979798436165,
+      0.04710867255926132,
+      0.02553480491042137,
+      1.0000001192092896
+    ]
+  ],
+  "distance_matrix": [
+    [
+      0.0,
+      0.2119976282119751,
+      0.9336122274398804,
+      0.9629679322242737,
+      0.9932067394256592
+    ],
+    [
+      0.2119976282119751,
+      -2.384185791015625e-07,
+      0.9029420018196106,
+      0.9418483972549438,
+      0.971189022064209
+    ],
+    [
+      0.9336122274398804,
+      0.9029420018196106,
+      -2.384185791015625e-07,
+      0.25458627939224243,
+      0.9528913497924805
+    ],
+    [
+      0.9629679322242737,
+      0.9418483972549438,
+      0.25458627939224243,
+      -1.1920928955078125e-07,
+      0.9744651913642883
+    ],
+    [
+      0.9932067394256592,
+      0.971189022064209,
+      0.9528913497924805,
+      0.9744651913642883,
+      -1.1920928955078125e-07
+    ]
+  ],
+  "pairwise_comparisons": [
+    {
+      "Pair": "Sentence 1 & Sentence 2",
+      "Text 1": "It is a beautiful, sunny day outside.",
+      "Text 2": "The weather is lovely and warm today.",
+      "Similarity": 0.7880023717880249,
+      "Distance": 0.2119976282119751,
+      "Type": "Weather Theme (Highly Similar)"
+    },
+    {
+      "Pair": "Sentence 1 & Sentence 3",
+      "Text 1": "It is a beautiful, sunny day outside.",
+      "Text 2": "A software engineer is writing clean Python code.",
+      "Similarity": 0.06638775765895844,
+      "Distance": 0.9336122274398804,
+      "Type": "Cross-Theme (Unrelated)"
+    },
+    {
+      "Pair": "Sentence 1 & Sentence 4",
+      "Text 1": "It is a beautiful, sunny day outside.",
+      "Text 2": "The developer is programming in Python on their laptop.",
+      "Similarity": 0.03703206032514572,
+      "Distance": 0.9629679322242737,
+      "Type": "Cross-Theme (Unrelated)"
+    },
+    {
+      "Pair": "Sentence 1 & Sentence 5",
+      "Text 1": "It is a beautiful, sunny day outside.",
+      "Text 2": "A stray cat is sleeping soundly under the car.",
+      "Similarity": 0.00679326057434082,
+      "Distance": 0.9932067394256592,
+      "Type": "Stray Cat Theme (Unrelated)"
+    },
+    {
+      "Pair": "Sentence 2 & Sentence 3",
+      "Text 1": "The weather is lovely and warm today.",
+      "Text 2": "A software engineer is writing clean Python code.",
+      "Similarity": 0.0970580205321312,
+      "Distance": 0.9029420018196106,
+      "Type": "Cross-Theme (Unrelated)"
+    },
+    {
+      "Pair": "Sentence 2 & Sentence 4",
+      "Text 1": "The weather is lovely and warm today.",
+      "Text 2": "The developer is programming in Python on their laptop.",
+      "Similarity": 0.05815163254737854,
+      "Distance": 0.9418483972549438,
+      "Type": "Cross-Theme (Unrelated)"
+    },
+    {
+      "Pair": "Sentence 2 & Sentence 5",
+      "Text 1": "The weather is lovely and warm today.",
+      "Text 2": "A stray cat is sleeping soundly under the car.",
+      "Similarity": 0.028810974210500717,
+      "Distance": 0.971189022064209,
+      "Type": "Stray Cat Theme (Unrelated)"
+    },
+    {
+      "Pair": "Sentence 3 & Sentence 4",
+      "Text 1": "A software engineer is writing clean Python code.",
+      "Text 2": "The developer is programming in Python on their laptop.",
+      "Similarity": 0.7454137206077576,
+      "Distance": 0.25458627939224243,
+      "Type": "Coding Theme (Highly Similar)"
+    },
+    {
+      "Pair": "Sentence 3 & Sentence 5",
+      "Text 1": "A software engineer is writing clean Python code.",
+      "Text 2": "A stray cat is sleeping soundly under the car.",
+      "Similarity": 0.04710865765810013,
+      "Distance": 0.9528913497924805,
+      "Type": "Stray Cat Theme (Unrelated)"
+    },
+    {
+      "Pair": "Sentence 4 & Sentence 5",
+      "Text 1": "The developer is programming in Python on their laptop.",
+      "Text 2": "A stray cat is sleeping soundly under the car.",
+      "Similarity": 0.025534814223647118,
+      "Distance": 0.9744651913642883,
+      "Type": "Stray Cat Theme (Unrelated)"
+    }
+  ]
+}
