@@ -20,3 +20,4 @@ I'm participating in the 60 Days of AI Challenge to improve my AI Engineering, P
 | 02 | [Your First Python AI Script](./Day-02/README.md) | ✅ |
 | 03 | [Prompt Engineering](./Day-03/README.md) | ✅ |
 | 04 | [Role-Based Prompting & Vectors](./Day-04/README.md) | ✅ |
+| 05 | [Context Makes AI Smarter](./Day-05/README.md) | ✅ |
