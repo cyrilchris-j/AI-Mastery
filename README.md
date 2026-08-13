@@ -22,3 +22,4 @@ I'm participating in the 60 Days of AI Challenge to improve my AI Engineering, P
 | 04 | [Role-Based Prompting & Vectors](./Day-04/README.md) | ✅ |
 | 05 | [Context Makes AI Smarter](./Day-05/README.md) | ✅ |
 | 06 | [Build an Intuition](./Day-06/README.md) | ✅ |
+| 07 | [Your First Classifier](./Day-07/README.md) |
