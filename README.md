@@ -24,3 +24,4 @@ I'm participating in the 60 Days of AI Challenge to improve my AI Engineering, P
 | 06 | [Build an Intuition](./Day-06/README.md) | ✅ |
 | 07 | [Your First Classifier](./Day-07/README.md) |
 How Machines Read Human Language
+Teaching AI Semantic Meaning Through Vectors
