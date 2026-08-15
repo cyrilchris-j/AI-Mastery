@@ -25,3 +25,5 @@ I'm participating in the 60 Days of AI Challenge to improve my AI Engineering, P
 | 07 | [Your First Classifier](./Day-07/README.md) |
 How Machines Read Human Language
 Teaching AI Semantic Meaning Through Vectors
+Build Your First End-to-End NLP Pipeline
+
