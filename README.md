@@ -31,3 +31,4 @@ Chunking Strategies for Long Document Processing
 Understanding Embeddings as Semantic Coordinates
 Build a Semantic Search Engine
 Build Your First RAG Pipeline
+Diagnosing RAG Failure Modes
