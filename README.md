@@ -32,3 +32,4 @@ Understanding Embeddings as Semantic Coordinates
 Build a Semantic Search Engine
 Build Your First RAG Pipeline
 Diagnosing RAG Failure Modes
+Improve RAG Precision with Metadata Filtering
