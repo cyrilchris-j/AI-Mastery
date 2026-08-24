@@ -37,3 +37,4 @@ Python Fundamentals Bootcamp (Core Syntax)
 Python Foundations Sprint (Syntax + Data Types)
 Why LLMs Hallucinate and How to Measure It
 Prompt Engineering for Reliable LLM Outputs
+Build a Football Intelligence Hub with Claude
