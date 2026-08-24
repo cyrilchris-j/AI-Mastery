@@ -36,3 +36,4 @@ Improve RAG Precision with Metadata Filtering
 Python Fundamentals Bootcamp (Core Syntax)
 Python Foundations Sprint (Syntax + Data Types)
 Why LLMs Hallucinate and How to Measure It
+Prompt Engineering for Reliable LLM Outputs
