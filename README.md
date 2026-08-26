@@ -38,3 +38,4 @@ Python Foundations Sprint (Syntax + Data Types)
 Why LLMs Hallucinate and How to Measure It
 Prompt Engineering for Reliable LLM Outputs
 Build a Football Intelligence Hub with Claude
+Build a Working AI Knowledge Assistant
