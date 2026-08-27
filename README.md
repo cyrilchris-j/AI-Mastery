@@ -43,3 +43,4 @@ You are an expert front-end developer. Build me a complete, fully working face p
 
 Python Data Structures & File Handling
 Build a CLI Calculator
+Designing Production-Ready AI APIs
