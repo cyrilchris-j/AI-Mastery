@@ -10,6 +10,7 @@ I'm participating in the 60 Days of AI Challenge to improve my AI Engineering, P
 - Learn Prompt Engineering
 - Mini Project: Stock Profit Analyzer
 - Master AI tools
+- FizzBuzz Automation
 - Build in Public
 - Push code every day
 
