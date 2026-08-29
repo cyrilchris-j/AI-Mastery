@@ -8,6 +8,7 @@ I'm participating in the 60 Days of AI Challenge to improve my AI Engineering, P
 
 - Build AI products
 - Learn Prompt Engineering
+- Mini Project: Stock Profit Analyzer
 - Master AI tools
 - Build in Public
 - Push code every day
