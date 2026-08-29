@@ -40,7 +40,7 @@ Prompt Engineering for Reliable LLM Outputs
 Build a Football Intelligence Hub with Claude
 Build a Working AI Knowledge Assistant
 You are an expert front-end developer. Build me a complete, fully working face puzzle game as a single self-contained HTML file (no external dependencies except what can load from cdnjs.cloudflare.com, cdn.jsdelivr.net, or unpkg.com).
-
+Data Cleaning & Feature Engineering
 Python Data Structures & File Handling
 Build a CLI Calculator
 Designing Production-Ready AI APIs
