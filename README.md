@@ -46,3 +46,4 @@ Build a CLI Calculator
 Designing Production-Ready AI APIs
 Validate Your Startup Idea Like a VC
 Data Loading & Understanding
+EDA + Sprint 1 Review
